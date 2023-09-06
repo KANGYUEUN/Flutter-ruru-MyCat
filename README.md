@@ -1,6 +1,6 @@
 # Flutter Project (2023-09-06)
 
-- dart, vsCode, flutter, firebase
+- dart, vsCode, flutter, firebase, Android Studio
 
 ## Cat In My Phone - Android 앱 구현
 

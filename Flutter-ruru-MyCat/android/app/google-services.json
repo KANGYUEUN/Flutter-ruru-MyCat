@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "917374234234",
+    "project_id": "flutter-ruru-mycat",
+    "storage_bucket": "flutter-ruru-mycat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917374234234:android:432f60ed5adb907e3715c3",
+        "android_client_info": {
+          "package_name": "com.ruru.mycat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "917374234234-d3510g1ob2pl7p12ves2dukbfp9d7kse.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGXQJuu8cb8Edp8nj0czEnS7Zvd3LYaps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "917374234234-d3510g1ob2pl7p12ves2dukbfp9d7kse.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
