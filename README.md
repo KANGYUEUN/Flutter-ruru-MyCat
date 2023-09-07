@@ -8,4 +8,4 @@
 - heart count ♡ rank system
 - My Cat Page - login(Google)
 - Interacting with MyCat
-- Cat Shop - link
+- Cat Shop - link !
