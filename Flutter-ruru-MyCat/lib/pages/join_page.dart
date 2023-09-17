@@ -22,17 +22,40 @@ class _JoinPageState extends State<JoinPage> {
   final _emailFocus = FocusNode();
   final _passwordFocus = FocusNode();
   final _nameFocus = FocusNode();
+  final _catnameFocus = FocusNode();
+
   final _formKey = GlobalKey<FormState>();
 
   String _emailValue = "";
   String _passwordValue = "";
   String _nameValue = "";
+  String _catnameValue = "";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text("회원가입"),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+            size: 20,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: const Text(
+          "Cat-Join ♥",
+          style: TextStyle(
+            fontSize: 20,
+            fontFamily: 'CatMainFont',
+            color: Colors.black,
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -48,26 +71,42 @@ class _JoinPageState extends State<JoinPage> {
                       .emailCheck(email: value!, focusNode: _emailFocus),
                   setValue: (value) => _emailValue = value,
                   hintText: "이메일",
-                  helpText: "이메일 형식에 맞게 입력하세요"),
+                  helpText: "이메일 형식에 맞게 입력하라냥 !"),
               // 비밀번호
               inputFormField(
                 focusNode: _passwordFocus,
                 hintText: "비밀번호",
-                helpText: "비밀번호는 특수문자, 영문자, 숫자 포함 8자 이상으로 입력해 주세요",
+                helpText: "비밀번호는 특수문자, 영문자, 숫자 포함 8자 이상으로 입력하라냥 !",
                 setValue: (value) => _passwordValue = value,
                 validator: (value) => CheckValidate().passwordCheck(
                   password: value!,
                   focusNode: _passwordFocus,
                 ),
               ),
-              // 회원가입 버튼
+              // 집사이름
               inputFormField(
-                focusNode: _nameFocus,
-                setValue: (value) => _nameValue = value,
-                validator: (value) => null,
-                hintText: "성명",
+                  focusNode: _nameFocus,
+                  setValue: (value) => _nameValue = value,
+                  validator: (value) => null,
+                  hintText: "집사이름",
+                  helpText: "cat slave name"),
+              // MyCat-name
+              inputFormField(
+                  focusNode: _catnameFocus,
+                  setValue: (value) => _catnameValue = value,
+                  validator: (value) => null,
+                  hintText: "MyCat-name ♡",
+                  helpText: "juinnim"),
+
+              joinButton(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset(
+                  'assets/뚫고나오는고냥.png',
+                  width: 200,
+                  height: 150,
+                ),
               ),
-              joinButton()
             ],
           ),
         ),
@@ -81,7 +120,7 @@ class _JoinPageState extends State<JoinPage> {
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.black,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               )),
@@ -119,7 +158,10 @@ class _JoinPageState extends State<JoinPage> {
             child: Text(
               "회원가입",
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 15),
+              style: TextStyle(
+                fontSize: 15,
+                fontFamily: 'CatChatFont',
+              ),
             ),
           )),
     );

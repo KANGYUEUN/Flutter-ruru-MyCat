@@ -158,6 +158,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  // 회원가입 버튼
   Widget joinButton() {
     return Padding(
       padding: const EdgeInsets.all(8.0),
