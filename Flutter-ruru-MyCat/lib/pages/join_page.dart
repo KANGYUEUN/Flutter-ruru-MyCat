@@ -85,18 +85,26 @@ class _JoinPageState extends State<JoinPage> {
               ),
               // 집사이름
               inputFormField(
+                focusNode: _nameFocus,
+                setValue: (value) => _nameValue = value,
+                validator: (value) => CheckValidate().userNameCheck(
+                  name: value!,
                   focusNode: _nameFocus,
-                  setValue: (value) => _nameValue = value,
-                  validator: (value) => null,
-                  hintText: "집사이름",
-                  helpText: "cat slave name"),
+                ),
+                hintText: "집사이름",
+                helpText: "cat slave name",
+              ),
               // MyCat-name
               inputFormField(
+                focusNode: _catnameFocus,
+                setValue: (value) => _catnameValue = value,
+                validator: (value) => CheckValidate().catnameCheck(
+                  catname: value!,
                   focusNode: _catnameFocus,
-                  setValue: (value) => _catnameValue = value,
-                  validator: (value) => null,
-                  hintText: "MyCat-name ♡",
-                  helpText: "juinnim"),
+                ),
+                hintText: "MyCat-name ♡",
+                helpText: "juinnim",
+              ),
 
               joinButton(),
               Padding(
@@ -118,15 +126,14 @@ class _JoinPageState extends State<JoinPage> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-              backgroundColor: Colors.black,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              )),
-          onPressed: () async {
-            _formKey.currentState?.validate();
-
+        style: ElevatedButton.styleFrom(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+            backgroundColor: Colors.black,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            )),
+        onPressed: () async {
+          if (_formKey.currentState?.validate() == null) {
             try {
               var result =
                   await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -134,7 +141,7 @@ class _JoinPageState extends State<JoinPage> {
                 password: _passwordValue,
               );
               widget.updateAuthUser(result.user);
-              // email, password 이외의 회원정보를 저장하려면 fireStore  에 저장을 해야함.
+              // email, password 이외의 회원정보를 저장 : fireStore
               if (result.user != null) {
                 await FirebaseFirestore.instance
                     .collection("user")
@@ -152,18 +159,20 @@ class _JoinPageState extends State<JoinPage> {
             }
 
             Navigator.pop(context);
-          },
-          child: const SizedBox(
-            width: double.infinity,
-            child: Text(
-              "회원가입",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 15,
-                fontFamily: 'CatChatFont',
-              ),
+          }
+        },
+        child: const SizedBox(
+          width: double.infinity,
+          child: Text(
+            "회원가입",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 15,
+              fontFamily: 'CatChatFont',
             ),
-          )),
+          ),
+        ),
+      ),
     );
   }
 }

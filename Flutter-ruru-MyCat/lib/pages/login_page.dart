@@ -134,12 +134,13 @@ class _LoginPageState extends State<LoginPage> {
                 // 로그인 성공 시 MyCatPage로 이동
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const MyCatPage(),
+                    builder: (context) => const MyCatPage(
+                      userName: "ruru",
+                    ),
                   ),
                 );
               }
             } catch (e) {
-              // 로그인 실패 시 에러 메시지를 알림 창으로 표시
               showAlertDialog('로그인에 실패했다냥 \u{1F63C} 재시도 하라냥 !');
             }
           },
