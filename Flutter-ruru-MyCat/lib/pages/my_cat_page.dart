@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mycat/pages/shop_page.dart';
 
 class MyCatPage extends StatelessWidget {
   final String userName; // CatPage 에 login한 userName
@@ -51,13 +52,42 @@ class MyCatPage extends StatelessWidget {
             ],
           ),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(
+              Icons.shopping_cart_checkout_rounded,
+              color: Colors.black,
+              size: 20,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ShopPage(),
+                ),
+              );
+            },
+          ),
+        ],
       ),
-      body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("로그인 성공!"),
-          ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/heart_talk.png',
+                width: 300,
+                height: 200,
+              ),
+              Image.asset(
+                "assets/치즈태비.png",
+                width: 500,
+                height: 500,
+              )
+            ],
+          ),
         ),
       ),
     );

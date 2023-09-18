@@ -67,6 +67,11 @@ flutter:
     - assets/start_cat.png
     - assets/냥글냥글고양이.png
     - assets/뚫고나오는고냥.png
+    - assets/heart_talk.png
+    - assets/치즈태비.png
+    - assets/택배고냥.png
+    - assets/3D하트산.png
+    - assets/힙터지는고양.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
