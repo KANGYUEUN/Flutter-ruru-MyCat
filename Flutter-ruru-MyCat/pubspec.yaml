@@ -81,6 +81,7 @@ flutter:
     - assets/하트픽셀말풍선.png
     - assets/아크로바틱냥.png
     - assets/기본말풍선.png
+    - assets/머그샷고냥.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

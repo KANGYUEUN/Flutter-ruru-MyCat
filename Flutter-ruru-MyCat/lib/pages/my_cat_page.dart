@@ -1,14 +1,24 @@
+// ignore_for_file: library_private_types_in_public_api
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:mycat/pages/cat_heart_rank.dart';
 import 'package:mycat/pages/my_cat_action.dart';
 import 'package:mycat/pages/shop_page.dart';
 
-class MyCatPage extends StatelessWidget {
+class MyCatPage extends StatefulWidget {
   final String userName; // CatPage 에 login한 userName
 
-  const MyCatPage({super.key, required this.userName});
+  const MyCatPage({Key? key, required this.userName}) : super(key: key);
+
+  @override
+  _MyCatPageState createState() => _MyCatPageState();
+}
+
+class _MyCatPageState extends State<MyCatPage> {
+  int heartCount = 0;
+  late Timer _timer;
 
   void onIcon1Pressed(BuildContext context) {
-    // Example: Navigate to another page
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -18,20 +28,45 @@ class MyCatPage extends StatelessWidget {
   }
 
   void onIcon2Pressed(BuildContext context) {
-    // Example: Show a snackbar
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Second icon button pressed')),
+      const SnackBar(content: Text('cat play ! 	\u{1F638}')),
     );
   }
 
   void onIcon3Pressed(BuildContext context) {
-    // Example: Navigate to another page
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => const MyCatActionPage(),
+        builder: (context) => const CatHeartRankPage(),
       ),
     );
+  }
+
+  void _incrementHeartCount() {
+    setState(() {
+      heartCount++;
+    });
+  }
+
+  void _decrementHeartCount(Timer timer) {
+    setState(() {
+      if (heartCount > 0) {
+        heartCount--;
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    _timer = Timer.periodic(const Duration(seconds: 3), _decrementHeartCount);
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
   }
 
   @override
@@ -62,7 +97,7 @@ class MyCatPage extends StatelessWidget {
                 ),
               ),
               TextSpan(
-                text: userName,
+                text: widget.userName,
                 style: const TextStyle(
                   fontSize: 20,
                   fontFamily: 'CatMainFont',
@@ -98,25 +133,39 @@ class MyCatPage extends StatelessWidget {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Center(
+      body: GestureDetector(
+        onTap: _incrementHeartCount,
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                'assets/기본말풍선.png',
-                width: 300,
-                height: 200,
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  Image.asset(
+                    'assets/기본말풍선.png',
+                    width: 300,
+                    height: 200,
+                  ),
+                  Text(
+                    '\u{2764} : $heartCount',
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'CatMainFont',
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
               ),
+              const SizedBox(height: 16.0),
               Positioned(
-                bottom: -300,
+                bottom: 0,
                 left: 0,
                 right: 0,
                 child: Image.asset(
                   "assets/치즈태비.png",
                   width: 390,
-                  height: 480,
+                  height: 380,
                 ),
               ),
             ],
