@@ -118,7 +118,7 @@ class _CatMainPageState extends State<CatMainPage> {
                   Image.asset('assets/start_cat.png'),
                   AnimatedOpacity(
                     opacity: showStartCatText ? 1.0 : 0.0,
-                    duration: const Duration(seconds: 1), // 애니메이션 기간
+                    duration: const Duration(seconds: 1),
                     child: const Text(
                       'Start Cat !',
                       style: TextStyle(

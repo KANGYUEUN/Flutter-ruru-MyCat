@@ -48,18 +48,29 @@ class ToyShopPage extends StatelessWidget {
           ),
         ],
       ),
-      body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Welcome to Toy Shop!',
-              style: TextStyle(fontSize: 24),
+      body: Stack(
+        children: [
+          Positioned(
+            left: 0,
+            top: 0,
+            child: Image.asset(
+              'assets/아크로바틱냥.png',
+              width: 300,
+              height: 300,
             ),
-            SizedBox(height: 20),
-            // Add more UI components as needed for the toy shop page
-          ],
-        ),
+          ),
+          const Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Welcome to Toy Shop!',
+                  style: TextStyle(fontSize: 24),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

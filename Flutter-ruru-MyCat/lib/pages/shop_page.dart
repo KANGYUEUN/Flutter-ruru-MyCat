@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mycat/pages/heart_shop_page.dart';
 import 'package:mycat/pages/snack_shop_page.dart';
 import 'package:mycat/pages/toy_shop_page.dart';
+import 'package:mycat/showpages/BlinkingHeartBalloon.dart';
 
 class ShopPage extends StatelessWidget {
   const ShopPage({super.key});
@@ -31,99 +32,110 @@ class ShopPage extends StatelessWidget {
           ),
         ),
       ),
-      body: Stack(
-        children: [
-          Expanded(
-            child: ListView(
-              children: [
-                ListTile(
-                  title: const Text(
-                    'Heart Item 	\u{2764} ',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontFamily: 'CatChatFont',
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Stack(
+          children: [
+            Expanded(
+              child: ListView(
+                children: [
+                  ListTile(
+                    title: const Text(
+                      'Heart Item 	\u{2764} ',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: 'CatChatFont',
+                      ),
                     ),
-                  ),
-                  subtitle: const Text(
-                    '게임내에서 사용하능한 하트라냥',
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontFamily: 'CatChatFont',
+                    subtitle: const Text(
+                      '게임내에서 사용하능한 하트라냥',
+                      style: TextStyle(
+                        fontSize: 11,
+                        fontFamily: 'CatChatFont',
+                      ),
                     ),
+                    trailing: const Icon(Icons.arrow_forward),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HeartShopPage()),
+                      );
+                    },
                   ),
-                  trailing: const Icon(Icons.arrow_forward),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const HeartShopPage()),
-                    );
-                  },
-                ),
-                const Divider(),
-                ListTile(
-                  title: const Text(
-                    'Cat Toy \u{26BD} ',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontFamily: 'CatChatFont',
+                  const Divider(),
+                  ListTile(
+                    title: const Text(
+                      'Cat Toy \u{26BD} ',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: 'CatChatFont',
+                      ),
                     ),
-                  ),
-                  subtitle: const Text(
-                    '활동을 위한 모든거라냥',
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontFamily: 'CatChatFont',
+                    subtitle: const Text(
+                      '활동을 위한 모든거라냥',
+                      style: TextStyle(
+                        fontSize: 11,
+                        fontFamily: 'CatChatFont',
+                      ),
                     ),
+                    trailing: const Icon(Icons.arrow_forward),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ToyShopPage()),
+                      );
+                    },
                   ),
-                  trailing: const Icon(Icons.arrow_forward),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ToyShopPage()),
-                    );
-                  },
-                ),
-                const Divider(),
-                ListTile(
-                  title: const Text(
-                    'Cat Snack \u{1F41F}',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontFamily: 'CatChatFont',
+                  const Divider(),
+                  ListTile(
+                    title: const Text(
+                      'Cat Snack \u{1F41F}',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: 'CatChatFont',
+                      ),
                     ),
-                  ),
-                  subtitle: const Text(
-                    '주인님이 좋아하는 냠냐미',
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontFamily: 'CatChatFont',
+                    subtitle: const Text(
+                      '주인님이 좋아하는 냠냐미',
+                      style: TextStyle(
+                        fontSize: 11,
+                        fontFamily: 'CatChatFont',
+                      ),
                     ),
+                    trailing: const Icon(Icons.arrow_forward),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SnackShopPage()),
+                      );
+                    },
                   ),
-                  trailing: const Icon(Icons.arrow_forward),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SnackShopPage()),
-                    );
-                  },
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          Positioned(
-            bottom: -40,
-            left: 0,
-            right: 0,
-            child: Image.asset(
-              'assets/택배고냥.png',
-              width: 500,
-              height: 480,
+            // const BlinkingHeartBalloon(),
+            Center(
+              child: Image.asset(
+                'assets/하트픽셀말풍선.png',
+                width: 40,
+                height: 90,
+              ),
             ),
-          ),
-        ],
+            Positioned(
+              bottom: -62,
+              left: 0,
+              right: 0,
+              child: Image.asset(
+                'assets/택배고냥.png',
+                width: 500,
+                height: 480,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
