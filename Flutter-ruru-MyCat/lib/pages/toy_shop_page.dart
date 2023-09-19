@@ -88,12 +88,12 @@ class ToyShopPage extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: Container(
-        height: 60.0, // 바의 높이
-        color: Colors.black.withOpacity(0.5), // 바의 배경색
-        child: const Center(
-          child: Text(
-            'My cat loves chur  우리집 고양이 츄르를 좋아해 \u{1F63D}',
-            style: TextStyle(
+        height: 60.0,
+        color: Colors.black.withOpacity(0.5),
+        child: Center(
+          child: Marquee(
+            text: 'AD  )  My cat loves chur  우리집 고양이 츄르를 좋아해 \u{1F63D}',
+            style: const TextStyle(
               fontSize: 15,
               fontFamily: 'CatMainFont',
               color: Colors.white,
@@ -110,7 +110,7 @@ void _launchURL(BuildContext context, String url) async {
     await launch(url);
   } else {
     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-      content: Text('Could not launch the URL.'),
+      content: Text('지금은 연결이 어렵다냥 \u{1F63F}'),
     ));
   }
 }
