@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:marquee/marquee.dart';
 import 'package:mycat/pages/my_cat_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -59,7 +60,7 @@ class ToyShopPage extends StatelessWidget {
             child: Image.asset(
               'assets/아크로바틱냥.png',
               width: 300,
-              height: 300,
+              height: 200,
             ),
           ),
           Positioned(
@@ -85,6 +86,20 @@ class ToyShopPage extends StatelessWidget {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: Container(
+        height: 60.0, // 바의 높이
+        color: Colors.black.withOpacity(0.5), // 바의 배경색
+        child: const Center(
+          child: Text(
+            'My cat loves chur  우리집 고양이 츄르를 좋아해 \u{1F63D}',
+            style: TextStyle(
+              fontSize: 15,
+              fontFamily: 'CatMainFont',
+              color: Colors.white,
+            ),
+          ),
+        ),
       ),
     );
   }
