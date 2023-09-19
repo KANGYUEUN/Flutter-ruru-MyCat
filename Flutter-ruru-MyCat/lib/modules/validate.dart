@@ -35,7 +35,7 @@ class CheckValidate {
       var regExp = RegExp(pattern);
       if (!regExp.hasMatch(password)) {
         focusNode.requestFocus();
-        return "비밀번호는 특수문자 영문자 숫자 포함하여 8~15자리로 입력해야 한다냥";
+        return "특수문자 영문자 숫자 포함하여 8~15자리로 입력해야 한다냥";
       }
     }
     return null;

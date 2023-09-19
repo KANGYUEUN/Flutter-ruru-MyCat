@@ -1,5 +1,8 @@
+// ignore_for_file: deprecated_member_use, use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:mycat/pages/my_cat_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ToyShopPage extends StatelessWidget {
   const ToyShopPage({super.key});
@@ -59,19 +62,62 @@ class ToyShopPage extends StatelessWidget {
               height: 300,
             ),
           ),
-          const Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Welcome to Toy Shop!',
-                  style: TextStyle(fontSize: 24),
-                ),
-              ],
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height * 0.6,
+              child: GridView.count(
+                crossAxisCount: 2,
+                padding: const EdgeInsets.all(20.0),
+                children: [
+                  buildGridItem(context, '캣닢',
+                      'https://pethroom.com/product/detail.html?product_no=111&cate_no=208&display_group=1'),
+                  buildGridItem(context, '낚시대',
+                      'https://pethroom.com/product/detail.html?product_no=421&cate_no=108&display_group=1'),
+                  buildGridItem(context, '스크래쳐',
+                      'https://pethroom.com/product/detail.html?product_no=362&cate_no=208&display_group=1'),
+                  buildGridItem(context, '캣 가구',
+                      'https://www.iloom.com/product/item.do?categoryNo=639'),
+                ],
+              ),
             ),
           ),
         ],
       ),
     );
   }
+}
+
+void _launchURL(BuildContext context, String url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      content: Text('Could not launch the URL.'),
+    ));
+  }
+}
+
+GestureDetector buildGridItem(
+    BuildContext context, String blockText, String url) {
+  return GestureDetector(
+    onTap: () {
+      _launchURL(context, url);
+    },
+    child: Card(
+      elevation: 2.0,
+      child: Center(
+        child: Text(
+          blockText,
+          style: const TextStyle(
+            fontSize: 20,
+            fontFamily: 'CatMainFont',
+            color: Color.fromARGB(255, 75, 73, 79),
+          ),
+        ),
+      ),
+    ),
+  );
 }
