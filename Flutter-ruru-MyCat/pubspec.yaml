@@ -42,6 +42,7 @@ dependencies:
   flutter_animator: ^3.2.2
   url_launcher: ^6.0.3
   marquee: ^2.2.3
+  # flutter_icons: ^1.1.0
   # flutter_sequence_animation: ^4.0.0
 
 dev_dependencies:
@@ -79,6 +80,7 @@ flutter:
     - assets/블랙하트.png
     - assets/하트픽셀말풍선.png
     - assets/아크로바틱냥.png
+    - assets/기본말풍선.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mycat/pages/heart_shop_page.dart';
 import 'package:mycat/pages/snack_shop_page.dart';
 import 'package:mycat/pages/toy_shop_page.dart';
-import 'package:mycat/showpages/BlinkingHeartBalloon.dart';
 
 class ShopPage extends StatelessWidget {
   const ShopPage({super.key});
