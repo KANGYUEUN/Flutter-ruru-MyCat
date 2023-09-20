@@ -52,7 +52,10 @@ class _MyCatPageState extends State<MyCatPage> {
               onPressed: () {
                 ScaffoldMessenger.of(context).hideCurrentSnackBar();
               },
-              icon: const Icon(Icons.sports_cricket_outlined),
+              icon: const Icon(
+                Icons.sports_cricket_outlined,
+                color: Colors.amber,
+              ),
               label: const Text(
                 '낚시대',
                 style: TextStyle(
@@ -67,7 +70,10 @@ class _MyCatPageState extends State<MyCatPage> {
               onPressed: () {
                 ScaffoldMessenger.of(context).hideCurrentSnackBar();
               },
-              icon: const Icon(Icons.toys_outlined),
+              icon: const Icon(
+                Icons.toys_outlined,
+                color: Colors.redAccent,
+              ),
               label: const Text(
                 '장난감',
                 style: TextStyle(
