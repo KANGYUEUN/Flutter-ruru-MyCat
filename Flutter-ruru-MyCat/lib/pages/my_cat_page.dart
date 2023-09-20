@@ -29,7 +29,57 @@ class _MyCatPageState extends State<MyCatPage> {
 
   void onIcon2Pressed(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('cat play ! 	\u{1F638}')),
+      SnackBar(
+        content: Row(
+          children: [
+            const SizedBox(width: 10),
+            ElevatedButton.icon(
+              onPressed: () {
+                ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              },
+              icon: const Icon(Icons.sports_handball_rounded),
+              label: const Text(
+                '공놀이',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontFamily: 'CatMainFont',
+                  color: Colors.black,
+                ),
+              ),
+            ),
+            const SizedBox(width: 10),
+            ElevatedButton.icon(
+              onPressed: () {
+                ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              },
+              icon: const Icon(Icons.sports_cricket_outlined),
+              label: const Text(
+                '낚시대',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontFamily: 'CatMainFont',
+                  color: Colors.black,
+                ),
+              ),
+            ),
+            const SizedBox(width: 10),
+            ElevatedButton.icon(
+              onPressed: () {
+                ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              },
+              icon: const Icon(Icons.toys_outlined),
+              label: const Text(
+                '장난감',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontFamily: 'CatMainFont',
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 

@@ -149,7 +149,7 @@ class CatAction extends StatelessWidget {
           '현재 하트 개수: $heartsCount',
           style: const TextStyle(fontSize: 18),
         ),
-        const SizedBox(height: 60),
+        const SizedBox(height: 61),
         Image.asset('assets/놀라는고영.png')
       ],
     );
