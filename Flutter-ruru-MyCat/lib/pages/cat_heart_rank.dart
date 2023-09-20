@@ -22,7 +22,7 @@ class CatHeartRankPage extends StatelessWidget {
           },
         ),
         title: const Text(
-          "명예의 RANK 전당이다냥 \u{26A1}",
+          "명예의 RANK 전당이다냥	\u{1F451}",
           style: TextStyle(
             fontSize: 20,
             fontFamily: 'CatMainFont',
