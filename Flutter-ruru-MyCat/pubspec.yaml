@@ -70,7 +70,6 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/start_cat.png
-    - assets/냥글냥글고양이.png
     - assets/뚫고나오는고냥.png
     - assets/heart_talk.png
     - assets/치즈태비.png
